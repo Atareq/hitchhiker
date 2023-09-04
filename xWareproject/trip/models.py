@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 cities_of_travel =[('usa','United Status America'),
     ('ca','canada'),('kwt','kewit'),('egy','egypt'),
     ('ksa','saudi')]
