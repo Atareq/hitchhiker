@@ -1,25 +1,24 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+
 cities_of_travel =[('usa','United Status America'),
     ('ca','canada'),('kwt','kewit'),('egy','egypt'),
     ('ksa','saudi')]
+
+
 class Trip (models.Model):
-    max_avai_weight= models.SmallIntegerField()
-    from_trip =models.CharField(choices = cities_of_travel)
-    to_trip = models.CharField(choices = cities_of_travel)
-    trip_date = models.DateField()
+    title = models.CharField(max_length=200)
+    location_from =models.CharField(choices = cities_of_travel)
+    location_to =models.CharField(choices = cities_of_travel)
+    date = models.DateTimeField(auto_now_add=True)
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    weight_available =  models.FloatField()
+
+
+
+  
 
 
 
 
-
-
-class Shipments (models.Model):
-   
-    item_link = models.URLField(max_length=200)
-    weight = models.SmallIntegerField()
-    from_ship =models.CharField(choices = cities_of_travel)
-    to_ship = models.CharField(choices = cities_of_travel)
-    ship_date = models.DateField()
-
-
-# Create your models here.
