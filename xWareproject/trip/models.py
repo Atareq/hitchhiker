@@ -13,3 +13,4 @@ class Trip (models.Model):
     date = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     weight_available =  models.FloatField()
+
