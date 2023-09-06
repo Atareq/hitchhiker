@@ -6,7 +6,7 @@ from .api import TripViewSet
 
 urlpatterns =[
 
-     path('post/',TripViewSet.as_view(
+     path('',TripViewSet.as_view(
         {
         'get':'list',
          'post':'create'

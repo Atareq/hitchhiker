@@ -2,9 +2,10 @@ from django.urls import path
 from . import api
 from .api import ShipmentViewSet ,ShipmentItemViewSet
 
+
 urlpatterns =[
 
-     path('post/',ShipmentViewSet.as_view(
+    path('',ShipmentViewSet.as_view(
         {'get':'list',
          'post':'create'})),
     
