@@ -10,6 +10,5 @@ class TripViewSet(viewsets.ModelViewSet):
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_class = TripFilters
-    
+    filterset_class = TripFilters    
     ordering_fields_= ['id']
