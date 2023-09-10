@@ -44,8 +44,7 @@ INSTALLED_APPS = [
     'shipment',
     'rest_framework_simplejwt',
     # 'Users',
-    'User_auth',
-    
+    'User_auth',    
     'django_extensions',    
 ]
 
