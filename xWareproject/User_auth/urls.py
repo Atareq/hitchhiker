@@ -11,5 +11,5 @@ urlpatterns = [
 
     path('auth/token/login', TokenObtainPairView.as_view()),
 
-    # path('jnds/koko/', TokenObtainPairView.as_view()),
+  
 ]

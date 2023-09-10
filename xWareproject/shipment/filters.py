@@ -1,12 +1,20 @@
 import django_filters
-from .models import Shipment
+from .models import Shipment,ShipmentItem
 
 class ShipmentFilters (django_filters.FilterSet):
     from_location = django_filters.CharFilter(lookup_expr='exact')
     to_location = django_filters.CharFilter(lookup_expr='exact')
-    before_date = django_filters.DateTimeFilter(lookup_expr='lt')
 
     class Meta:
-        model = Shipment
+        model = Shipment 
         fields = []
 
+
+class ShipmentItemFilters(django_filters.FilterSet):
+
+    item_weight = django_filters.NumberFilter(lookup_expr='lt')
+
+
+    class Meta:
+        model = ShipmentItem
+        fields = []
