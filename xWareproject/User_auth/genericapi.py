@@ -1,33 +1,48 @@
-# views.py
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
 from .serializers import UserRegistrationSerializer, UserLoginSerializer
 from User_auth.models import CustomUser
-
+import phonenumbers 
 
 class UserRegistrationView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()  # Use CustomUser here
     serializer_class = UserRegistrationSerializer
     permission_classes = (permissions.AllowAny,)
 
+    
+    def check_phone(self, string_phone_number):
+        phone_number =phonenumbers.parse(string_phone_number)
+        if phonenumbers.is_possible_number(phone_number):
+            return True
+        return False
+        
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        
-        # Hash the password before saving the user
+        string_phone_number = request.data.get('phone_number')
+        valid_phone = self.check_phone(string_phone_number) 
+        if valid_phone ==False:
+            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+
+         # Hash the password before saving the user
         user = serializer.save()
         user.set_password(request.data.get('password'))
         user.save()
-
         refresh = RefreshToken.for_user(user)
         data = {
             "refresh": str(refresh),
             "access": str(refresh.access_token),
         }
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-
+        # send_otp_via_email(instance.email)
+        # headers = self.get_success_headers(serializer.data)
+        return Response({
+            'status':201,
+            'message':'Verify Your Email to continue',
+            'data': serializer.data,
+            # 'headers':headers
+        })
 class UserLoginView(generics.CreateAPIView):
     serializer_class = UserLoginSerializer
     permission_classes = (permissions.AllowAny,)

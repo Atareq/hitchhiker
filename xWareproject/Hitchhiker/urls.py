@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path , include
-from trip.api import TripViewSet 
+from trip.trip_api import TripViewSet 
 from shipment.api import ShipmentItemViewSet,ShipmentViewSet
 # from Users.views import UserDetailAPI , RegisterUserAPIView
 
