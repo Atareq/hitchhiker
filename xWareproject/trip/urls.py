@@ -2,8 +2,6 @@ from django.urls import path
 from . import api
 from .api import TripViewSet
 
-
-
 urlpatterns =[
 
      path('',TripViewSet.as_view(

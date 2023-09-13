@@ -14,7 +14,7 @@ class Shipment(models.Model):
     from_location = models.CharField(choices = cities_of_travel,max_length=20)
     to_location = models.CharField(choices = cities_of_travel,max_length=20)
     name_shipment = models.CharField(max_length=20)
-    before_date = models.DateTimeField()
+    before_date = models.DateField(auto_now_add=True)
     trip_object =  models.ForeignKey(Trip ,on_delete=models.CASCADE)
 
 class ShipmentItem(models.Model):

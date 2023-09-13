@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',   
+    'coverage',
     'django_filters',
     'trip',
     'shipment',
@@ -62,8 +63,6 @@ REST_FRAMEWORK = {
 
 
 
-
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -76,9 +75,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.RemoteUserMiddleware',
 ]
 
-ROOT_URLCONF = 'Hitchhiker.urls'
-
 TEMPLATES = [
+
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
@@ -93,6 +91,8 @@ TEMPLATES = [
         },
     },
 ]
+
+ROOT_URLCONF ='Hitchhiker.urls'
 
 WSGI_APPLICATION = 'Hitchhiker.wsgi.application'
 
