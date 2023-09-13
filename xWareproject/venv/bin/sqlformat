@@ -1,4 +1,6 @@
-#!/home/ubuntu/Desktop/hitchhiker/xWareproject/venv/bin/python3
+#!/bin/sh
+'''exec' "/home/david/Desktop/new /hitchhiker/xWareproject/venv/bin/python3" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys
