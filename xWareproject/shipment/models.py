@@ -1,5 +1,6 @@
 from django.db import models
 from trip.models import Trip
+from User_auth.models import CustomUser
 
 cities_of_travel =[
     ('usa','United Status America'),
@@ -10,6 +11,7 @@ cities_of_travel =[
     ]
 
 class Shipment(models.Model):
+    user_s=models.ForeignKey(CustomUser, null=True,on_delete=models.CASCADE )
     
     from_location = models.CharField(choices = cities_of_travel,max_length=20)
     to_location = models.CharField(choices = cities_of_travel,max_length=20)
