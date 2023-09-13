@@ -3,7 +3,7 @@ from User_auth.models import CustomUser
 
 
 class Trip(models.Model):
-    user_s=models.ForeignKey(CustomUser, null=True,on_delete=models.CASCADE )
+    user_t=models.ForeignKey(CustomUser, null=True,on_delete=models.CASCADE )
     cities_of_travel =[('usa','United Status America'),
     ('ca','canada'),('kwt','kewit'),('egy','egypt'),
     ('ksa','saudi')]
