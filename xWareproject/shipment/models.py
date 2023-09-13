@@ -17,10 +17,6 @@ class Shipment(models.Model):
     before_date = models.DateTimeField()
     trip_object =  models.ForeignKey(Trip ,on_delete=models.CASCADE)
 
-# trip_instance = Trip.objects.get(id)  # Replace 3 with the actual ID of the Trip
-# shipment_instance = Shipment.objects.create(trip=trip_instance)
-
- 
 class ShipmentItem(models.Model):
 
     shipment_id = models.ForeignKey(Shipment,on_delete=models.CASCADE)
