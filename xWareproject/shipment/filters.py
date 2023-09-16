@@ -4,7 +4,7 @@ from .models import Shipment,ShipmentItem
 class ShipmentFilters (django_filters.FilterSet):
     from_location = django_filters.CharFilter(lookup_expr='exact')
     to_location = django_filters.CharFilter(lookup_expr='exact')
-
+    before_date =django_filters.DateFilter()
     class Meta:
         model = Shipment 
         fields = []

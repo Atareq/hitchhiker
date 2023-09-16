@@ -7,7 +7,7 @@ class ShipmentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ItemShipmentSerializer(serializers.ModelSerializer):
+class ShipmentItemSerializer(serializers.ModelSerializer):
     # user_shipment = ShipmentSerializer(many=True)
 
     class Meta :
