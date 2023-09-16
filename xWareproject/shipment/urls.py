@@ -1,18 +1,17 @@
 from django.urls import path
-from .api import ShipmentViewSet ,ShipmentItemViewSet
-
+from .viewset import ShipmentViewSet ,ShipmentItemViewSet
+from .views import create_shipment_item
 
 urlpatterns =[
 
     path('',ShipmentViewSet.as_view(
         {'get':'list',
-         'post':'create'})),
+        })),
+    path('add/', create_shipment_item),
     
-    path('<int:pk>/',ShipmentViewSet.as_view(
+    path('<int:pk>/',ShipmentItemViewSet.as_view(
         {
          'get':'retrieve' ,
-         'post':'create',
-         'patch':'partial_update',
          'put' : 'update',
          'delete' : 'destroy',
         })),
