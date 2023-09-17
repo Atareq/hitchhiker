@@ -3,7 +3,7 @@ from rest_framework import status
 from .serializers import ShipmentSerializer, ShipmentItemSerializer
 from rest_framework.decorators import api_view
 from info_from_token import get_user_pk_from_token
-
+from .models import Shipment 
 
 @api_view(['POST'])
 def create_shipment_item(request):
@@ -29,6 +29,15 @@ def create_shipment_item(request):
     item_serializer.save()
 
     # Return a success response
-    return Response(item_data, shipment_data, status=status.HTTP_201_CREATED)
+    return Response(item_data, status=status.HTTP_201_CREATED)
 
 
+
+
+@api_view(['GET'])
+def  myshipment_view_set(request):
+    user_pk = get_user_pk_from_token(request=request)
+    my_shipment_objects = Shipment.objects.filter(user_s=user_pk)
+    serialized_shipment = ShipmentSerializer(my_shipment_objects, many=True)
+    myshipments_data = serialized_shipment.data
+    return Response(myshipments_data, status=status.HTTP_200_OK)

@@ -9,7 +9,10 @@ def get_user_pk_from_token(request):
     if not auth_header:
         raise AuthenticationFailed("Authorization header missing")
 
+<<<<<<< HEAD
     # Extract the token part (e.g., "Bearer <token>")
+=======
+>>>>>>> a25e798da55b15a84fa0f2082467bb9bbd6fa3b9
     token = auth_header.split(' ')[1]
 
     access_token_obj = AccessToken(token)
