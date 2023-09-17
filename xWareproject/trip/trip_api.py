@@ -23,3 +23,4 @@ class TripViewSet(viewsets.ModelViewSet):
                 self.request.query_params.get('date')
             ])
         return query
+    #hello world
