@@ -1,7 +1,7 @@
 from django.urls import path
 from .trip_api import TripViewSet
-from .views import MyTripViewSet
-
+from .views import add_trip
+from .trip_api import mytrip_view_set
 
 urlpatterns =[
      path('',TripViewSet.as_view(
@@ -16,7 +16,9 @@ urlpatterns =[
          'patch':'partial_update',
         }))
         ,
-     path('my/',MyTripViewSet)
+     path('add/',add_trip),
+
+     path('my/',mytrip_view_set),
 
 ]
 
