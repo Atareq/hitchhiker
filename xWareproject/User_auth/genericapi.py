@@ -40,8 +40,6 @@ class UserRegistrationView(generics.CreateAPIView):
         }
         
         return Response({
-            'status': status.HTTP_201_CREATED,
-            'message': 'Verify Your Email to continue',
             'data': serializer.data,
         }, status=status.HTTP_201_CREATED)
 
