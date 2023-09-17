@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'trip',
     'shipment',
     'rest_framework_simplejwt',
-    # 'Users',
     'User_auth',    
     'django_extensions', 
     'rest_framework_swagger', 
@@ -154,6 +153,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    
 }
 
 SIMPLE_JWT = {
@@ -167,3 +167,6 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = 'User_auth.CustomUser'
+AUTHENTICATION_BACKENDS = [
+    'yourapp.backends.PhoneBackend',
+]

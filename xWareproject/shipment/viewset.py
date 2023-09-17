@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets 
 from .models import Shipment ,ShipmentItem
-from .serializers import ShipmentSerializer ,ItemShipmentSerializer
+from .serializers import ShipmentSerializer ,ShipmentItemSerializer
 from django_filters.rest_framework import DjangoFilterBackend 
 from django_filters import rest_framework as filters
 from .filters import ShipmentFilters , ShipmentItemFilters
@@ -15,7 +15,7 @@ class ShipmentViewSet(viewsets.ModelViewSet):
 
 
 class ShipmentItemViewSet (viewsets.ModelViewSet):
-    queryset=ShipmentItem.objects.all()
-    serializer_class = ItemShipmentSerializer
+    queryset=ShipmentItem.objects.filter()
+    serializer_class = ShipmentItemSerializer
     filter_backends=[DjangoFilterBackend]
     filterset_class=ShipmentItemFilters

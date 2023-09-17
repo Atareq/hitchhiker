@@ -2,6 +2,7 @@ from datetime import date
 import django_filters
 import datetime
 from .models import Trip 
+from datetime import date
 
 
 class TripFilters(django_filters.FilterSet):

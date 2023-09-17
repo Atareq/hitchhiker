@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from rest_framework import viewsets ,filters
+from rest_framework.response import Response
+from rest_framework import viewsets 
 from .models import Trip
 from .serializers import TripSerializer
 from django_filters.rest_framework import DjangoFilterBackend

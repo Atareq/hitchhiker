@@ -1,27 +1,27 @@
 from django.urls import path
-from . import trip_api
 from .trip_api import TripViewSet
-from .my_trip_api import MyTripViewSet
+# from .views import MyTripViewSet
+
 
 urlpatterns =[
      path('',TripViewSet.as_view(
-        {
+ {
         'get':'list',
-         'post':'create'
+        'post':'create',
          }
          )),
-     path ('my',MyTripViewSet.as_view({
-         
-         'post'':patch'
-     })),
+    #  path ('my',MyTripViewSet.as_view({
+    #      'post'':patch'
+    #  })),
     
     path('<int:pk>/',TripViewSet.as_view(
         {
          'get':'retrieve' ,
-         'post':'create',
          'patch':'partial_update',
-         'put' : 'update',
-         'delete' : 'destroy',
-        })),
+        }))
+        ,
+    #  path('my/',MyTripViewSet)
 
 ]
+
+##shippment id w di hadfha any a3rf a3ml share ll 7aga ally 3ayzha
