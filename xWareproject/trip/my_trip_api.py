@@ -4,12 +4,14 @@ from .models import Trip
 from .serializers import TripSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from .filter import TripFilters
+from rest_framework.permissions import IsAuthenticated
 
 class MyTripViewSet(viewsets.ModelViewSet):
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_class = TripFilters    
+    filterset_class = TripFilters 
+    permission_classes=[IsAuthenticated]   
     ordering_fields_= ['id']
 
 

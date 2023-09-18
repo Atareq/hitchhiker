@@ -1,15 +1,15 @@
 
-from django.urls import path
+from django.urls import path , include
 from User_auth.genericapi import UserRegistrationView,UserLoginView
 from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.routers import DefaultRouter
 
+
+router = DefaultRouter()
+router.register(r'register', UserRegistrationView, basename='register')
 
 urlpatterns = [
-    path('register/', UserRegistrationView.as_view()),
+    path('api/', include(router.urls)),
+    path('login/', UserLoginView.as_view()),
 
-    # path('notifications/<int:pk>/', UserLoginView.as_view()),
-
-    path('auth/token/login', UserLoginView.as_view()),
-
-  
 ]

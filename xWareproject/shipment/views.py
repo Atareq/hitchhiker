@@ -7,6 +7,7 @@ from .models import Shipment
 
 @api_view(['POST'])
 def create_shipment_item(request):
+  
     item_data = request.data.get('item', {})  # Assuming 'item' is the data for ShipmentItem
     shipment_data = request.data.get('shipment', {})  # Assuming 'shipment' is the data for Shipment
 
@@ -16,6 +17,8 @@ def create_shipment_item(request):
     if user_pk is None:
         return Response({"error": "Invalid or missing token"}, status=status.HTTP_401_UNAUTHORIZED)
 
+  
+    print(item_data)
     shipment_data['user_s'] = user_pk
 
     # Create instances of Shipment and ShipmentItem serializers

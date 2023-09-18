@@ -5,6 +5,7 @@ from .serializers import TripSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from django_filters import rest_framework as filters
 from .filter import TripFilters
+from rest_framework.permissions import IsAuthenticated
 
 
 class TripViewSet(viewsets.ModelViewSet):
@@ -12,6 +13,8 @@ class TripViewSet(viewsets.ModelViewSet):
     serializer_class = TripSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = TripFilters
+    permission_classes=[IsAuthenticated]
+
 
     def get_queryset(self):
         query = self.queryset

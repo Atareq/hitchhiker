@@ -7,7 +7,6 @@ urlpatterns =[
      path('',TripViewSet.as_view(
  {
         'get':'list',
-        'post':'create'
          }
          )),
     #  path ('my',MyTripViewSet.as_view({
@@ -26,4 +25,17 @@ urlpatterns =[
 
 ]
 
-##shippment id w di hadfha any a3rf a3ml share ll 7aga ally 3ayzha
+# shippment id w di hadfha any a3rf a3ml share ll 7aga ally 3ayzha
+
+from django.urls import path,include
+from .trip_api import TripViewSet
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register(r'trip', TripViewSet)  
+
+urlpatterns = [
+    path('api/', include(router.urls)),
+    path('add/',add_trip),
+    
+]

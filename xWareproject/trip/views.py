@@ -1,10 +1,7 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Trip
 from .serializers import TripSerializer
-from django_filters.rest_framework import DjangoFilterBackend
-from .filter import TripFilters
 from rest_framework.decorators import api_view
 from info_from_token import get_user_pk_from_token
 
@@ -23,9 +20,5 @@ def add_trip(request):
     tripSerializer.is_valid(raise_exception=True)
     tripSerializer.save()
     return Response (trip_data,status=status.HTTP_201_CREATED)
-@api_view(['GET'])
-def my_trip(request):
-    pass 
-
 
 
