@@ -13,7 +13,7 @@ from .views import create_shipment_item ,myshipment_view_set
 
 # ]
 from django.urls import path , include
-from .viewset import ShipmentViewSet 
+from .api import ShipmentViewSet 
 
 from rest_framework.routers import DefaultRouter
 
