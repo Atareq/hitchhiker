@@ -6,13 +6,15 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django_filters import rest_framework as filters
 from .filters import ShipmentFilters , ShipmentItemFilters
 from info_from_token import get_user_pk_from_token
+from rest_framework.permissions import IsAuthenticated
 
 class ShipmentViewSet(viewsets.ModelViewSet):
     queryset = Shipment.objects.all()
     serializer_class = ShipmentSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = ShipmentFilters 
-    # def retrieve(request):
+    permission_classes=[IsAuthenticated]
+        # def retrieve(request):
     #     user_pk=get_user_pk_from_token(request=request)
 
 
