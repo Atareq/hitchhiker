@@ -10,7 +10,7 @@ class Trip(models.Model):
     user_t=models.ForeignKey(CustomUser, null=False,on_delete=models.CASCADE )
     location_from =models.CharField(choices = cities_of_travel,max_length=10)
     location_to =models.CharField(choices = cities_of_travel,max_length=10)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
     weight_available =  models.FloatField()
     rate = models.IntegerField(validators=[MaxValueValidator(5),MinValueValidator(0)])

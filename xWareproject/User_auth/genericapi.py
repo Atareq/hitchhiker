@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions, status
+from rest_framework import generics, permissions, status ,viewsets
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.db.models import Q
@@ -7,10 +7,10 @@ import phonenumbers
 from .serializers import UserRegistrationSerializer, UserLoginSerializer
 from User_auth.models import CustomUser
 
-class UserRegistrationView(generics.CreateAPIView):
+class UserRegistrationView(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = UserRegistrationSerializer
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = [permissions.AllowAny,]
 
     def check_phone(self, string_phone_number):
         try:
