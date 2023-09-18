@@ -19,7 +19,7 @@ from rest_framework.routers import DefaultRouter
 
 
 router = DefaultRouter()
-router.register(r'shipment', ShipmentViewSet , base_name='shipment')  
+router.register(r'shipment', ShipmentViewSet)  
 
 urlpatterns = [
     path('api/', include(router.urls)),
