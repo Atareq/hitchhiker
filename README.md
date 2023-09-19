@@ -5,7 +5,7 @@
 <br />
 <div>
 
-<h3 align="center">HitchhikerProject</h3>
+<h3 align="center">Hitchhiker Project</h3>
 
   <p align="center">
     Hitchhiker
@@ -15,7 +15,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
- Hitchhiker
+ Ship with a fellow Traveler
  
 <br>
 
