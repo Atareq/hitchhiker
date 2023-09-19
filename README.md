@@ -5,10 +5,10 @@
 <br />
 <div>
 
-<h3 align="center">Hitchhiker Project</h3>
+<h3 align="center">Hitchhiker  Project</h3>
 
   <p align="center">
-    Hitchhiker
+    Ship with a fellow Traveler
     
     
 </div>
