@@ -1,6 +1,6 @@
 from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework.exceptions import AuthenticationFailed
-
+from rest_framework.request import Request
 
 
 def get_user_pk_from_token(request):

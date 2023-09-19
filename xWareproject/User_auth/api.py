@@ -6,6 +6,8 @@ from django.contrib.auth.hashers import check_password
 import phonenumbers
 from .serializers import UserRegistrationSerializer, UserLoginSerializer
 from User_auth.models import CustomUser
+from info_from_token import get_user_pk_from_token
+
 
 class UserRegistrationView(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
@@ -60,10 +62,16 @@ class UserLoginView(generics.CreateAPIView):
             refresh = RefreshToken.for_user(user)
             
             data = {
-                "refresh": str(refresh),
+                
                 "access": str(refresh.access_token),
             }
             
             return Response(data, status=status.HTTP_200_OK)
         
         return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+
+    def get(self,request):
+        user_pk = get_user_pk_from_token(request)
+        user_data=CustomUser.objects.get(id=user_pk)
+        user_serialized = UserRegistrationSerializer(instance=user_data)
+        return Response(user_serialized.data,status=status.HTTP_200_OK)

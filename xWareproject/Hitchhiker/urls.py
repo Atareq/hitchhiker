@@ -1,16 +1,12 @@
 from django.contrib import admin
-from django.urls import path , include
-from shipment.viewset import ShipmentItemViewSet,ShipmentViewSet
-# from Users.views import UserDetailAPI , RegisterUserAPIView
-
-# from shipment.api import ShipmentViewSet
+from django.urls import path ,include
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('user/',include('User_auth.urls')),
+    path('',include('User_auth.urls')),
 
-    path('trip/',include('trip.urls')),
+    path('',include('trip.urls')),
 
-    path('shipment/',include('shipment.urls')),
+    path('',include('shipment.urls')),
     
 ]   
