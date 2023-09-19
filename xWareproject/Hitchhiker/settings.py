@@ -31,8 +31,9 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'User_auth',    
     'django_extensions', 
-    'rest_framework_swagger', 
-    'drf_yasg',  
+    # 'rest_framework_swagger', 
+    # 'drf_yasg',  
+    
 ]
 
 REST_FRAMEWORK = {
@@ -183,5 +184,7 @@ CORS_ALLOW_HEADERS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    '*'
+    "https://example.com",
+    "https://yourdomain.com",
 ]
+APPEND_SLASH = False

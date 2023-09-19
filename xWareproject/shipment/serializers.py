@@ -1,10 +1,6 @@
 from rest_framework import serializers
 from .models import Shipment,Trip ,ShipmentItem
 
-class ShipmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Shipment
-        fields = '__all__'
 
 
 class ShipmentItemSerializer(serializers.ModelSerializer):
@@ -14,7 +10,18 @@ class ShipmentItemSerializer(serializers.ModelSerializer):
         model = ShipmentItem
         fields = '__all__'
 
+class RetriveShipmentSerializer(serializers.ModelSerializer):
+    items = ShipmentItemSerializer(source="shipmentitem_set", many=True)
 
+    class Meta:
+        model = Shipment
+        fields = '__all__'
+
+class ShipmentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Shipment
+        fields = '__all__'
 
     # def Create(self , validated_data):
     #     user_shipment = validated_data.pop('user shipment')
